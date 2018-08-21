@@ -26,6 +26,8 @@ def train_model():
         random_state=1)
     svm_model.fit(x_train, y_train)
 
+    joblib.dump(svm_model, 'model.pkl')
+
     model_accuracy = svm_model.score(x_test, y_test)
 
     return jsonify({'success': True, 'model_accuracy': model_accuracy})
