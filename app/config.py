@@ -6,4 +6,4 @@ def set_private_environment_variables():
     os.environ["POSTGRES_USER"] = "postgres"
     os.environ["POSTGRES_PASSWORD"] = ""
     os.environ["POSTGRES_HOST"] = "localhost"
-    os.environ["DATABASE"] = "ml-flask-app"
+    os.environ["POSTGRES_DB"] = "ml-flask-app"
