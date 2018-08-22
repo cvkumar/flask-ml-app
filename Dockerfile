@@ -1,11 +1,17 @@
 # Format: FROM    repository[:version]
-FROM       ubuntu:latest
+FROM ubuntu:latest
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
 
-COPY . /flask-ml-app
-WORKDIR /flask-ml-app
+ADD ./requirements.txt ./app/requirements.txt
+WORKDIR /app
+RUN pip install -r ./requirements.txt
+COPY . .
+#COPY . /app
+#WORKDIR /app
 
-RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["app/app.py"]
+EXPOSE 5000
+
+#RUN pip install -r requirements.txt
+#ENTRYPOINT ["python"]
+CMD python app/app.py

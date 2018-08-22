@@ -1,19 +1,26 @@
 version: "3"
 services:
-  web:
-    # replace username/repo:tag with your name and image details
-    image: kumarcal/basics:flask-ml-app
-    deploy:
-      replicas: 3
-      resources:
-        limits:
-          cpus: "0.1"
-          memory: 50M
-      restart_policy:
-        condition: on-failure
+  app:
+    restart: always
+    build: .
+    env_file:
+      - .env
     ports:
-      - "5000:5000"
-    networks:
-      - webnet
-networks:
-  webnet:
+    - 5000:5000
+    volumes:
+    - .:/app
+    depends_on:
+    - postgres
+    links:
+    - postgres:postgres
+  postgres:
+    restart: always
+    image: postgres
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "user"
+      POSTGRES_DB: "testdb"
+    #    volumes:
+    #    - ./postgres-data/postgres:/var/lib/postgresql/data
+    ports:
+    - 5432:5432
