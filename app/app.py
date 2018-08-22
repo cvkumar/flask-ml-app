@@ -97,7 +97,7 @@ def __make_prediction(flower, svm_model):
 
 
 if __name__ == "__main__":
-    config.set_private_environment_variables()
+    # config.set_private_environment_variables()
     database.connect_database()
 
     app.run(debug=True, host='0.0.0.0')

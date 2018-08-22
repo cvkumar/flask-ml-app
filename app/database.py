@@ -16,6 +16,6 @@ class Prediction(db.Entity):
 
 
 def connect_database():
-    db.bind(provider='postgres', user='user', password='user',
-            host="postgres", database='testdb', port=5432)
+    db.bind(provider='postgres', user=os.environ['POSTGRES_USER'], password=os.environ['POSTGRES_PASSWORD'],
+            host="postgres", database=os.environ['POSTGRES_DB'], port=5432)
     db.generate_mapping(create_tables=True)
