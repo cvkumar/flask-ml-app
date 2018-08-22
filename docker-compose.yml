@@ -12,6 +12,7 @@ services:
     depends_on:
     - postgres
     links:
+      # This means link my postgres to their postgres domain (ip)
     - postgres:postgres
   postgres:
     restart: always

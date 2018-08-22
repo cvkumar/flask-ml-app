@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask import request
 from flask import jsonify
@@ -97,7 +99,9 @@ def __make_prediction(flower, svm_model):
 
 
 if __name__ == "__main__":
-    # config.set_private_environment_variables()
+    if os.environ["LOCAL"] == "True":
+        config.set_private_environment_variables()
+
     database.connect_database()
 
     app.run(debug=True, host='0.0.0.0')
