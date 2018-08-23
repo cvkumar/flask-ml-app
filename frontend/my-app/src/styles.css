@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.main-page {
+  text-align: center;
+  /*padding-left: 30%;*/
+}
+
+#train-model {
+  padding-top: 1em;
+}
+
+#prediction {
+  padding-top: 2em;
+}
+
+.number-input {
+  margin-top: 1em;
+}
+
+.predict-button {
+  margin-top: 2em;
+  padding: .5em;
+  font-size: .75em;
+}
+
+.answer {
+  margin-top: 1em;
+  font-size: 2em;
+}
+
+#clear-button {
+  margin-left: 2em;
+}
+
+div.inputs {
+  margin: 0 auto;
+  width: 26em;
+  background-color: #f2f2f2;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+table.results {
+  margin: 0 auto;
+}
+
+* {
+  font-family: sans-serif;
+}

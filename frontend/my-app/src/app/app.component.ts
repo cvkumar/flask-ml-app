@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {RequestOptions} from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -10,37 +9,63 @@ import {RequestOptions} from '@angular/http';
 })
 export class AppComponent {
   title = 'Iris Prediction Modeling';
+  model_accuracy = 0;
+  modelTrained = false;
+
+  prediction = null;
+
+  sepal_length: number = null;
+  sepal_width: number = null;
+  petal_length: number = null;
+  petal_width: number = null;
+
+  results = null;
+  displayedColumns = ['time', 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'prediction'];
 
   constructor(private http: HttpClient) {
-    // this.trainModel();
   }
 
   public trainModel() {
-    return this.http.get('/train').subscribe((data: any) => {
-      console.log(data);
+    return this.http.get('/train').subscribe((response: any) => {
+      // console.log(response);
+      this.model_accuracy = response.model_accuracy;
+      console.log(this.model_accuracy);
+      this.modelTrained = true;
     });
   }
 
   public makePrediction() {
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
-    // console.log(headers);
-    const payload = JSON.stringify({'sepal_length': 5, 'sepal_width': 3, 'petal_length': 1, 'petal_width': 1});
+    const payload = JSON.stringify({
+      'sepal_length': this.sepal_length,
+      'sepal_width': this.sepal_width,
+      'petal_length': this.petal_length,
+      'petal_width': this.petal_width
+    });
 
-    return this.http.post('/predict', payload, {'headers': headers}).subscribe((data: any) => {
-      console.log(data);
+    return this.http.post('/predict', payload, {'headers': headers}).subscribe((response: any) => {
+      this.prediction = response.prediction;
+      console.log(this.prediction);
     });
   }
 
   public getPredictions() {
-    return this.http.get('/predictions').subscribe((data: any) => {
-      console.log(data);
+    return this.http.get('/predictions').subscribe((response: any) => {
+      this.results = response.predictions;
+      console.log(response);
     });
   }
 
   public deletePredictions() {
-    return this.http.delete('/predictions').subscribe((data: any) => {
-      console.log(data);
+    return this.http.delete('/predictions').subscribe((response: any) => {
+      this.results = null;
+      console.log(response);
     });
   }
+
+  private fieldsFilled(): boolean {
+    return this.sepal_length != null && this.sepal_width != null && this.petal_length != null && this.petal_width != null;
+  }
+
 }
