@@ -89,7 +89,6 @@ def clear_predictions():
 def __make_prediction(flower, svm_model):
     predictions = svm_model.predict_proba(flower)[0]
     result = {'Setosa': predictions[0], 'Versicolour': predictions[1], 'Virginica': predictions[2]}
-
     if result['Setosa'] >= result['Versicolour'] and result['Setosa'] > result['Versicolour']:
         return 'Setosa'
     elif result['Versicolour'] >= result['Setosa'] and result['Versicolour'] > result['Virginica']:
