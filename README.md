@@ -1,85 +1,65 @@
 # flask-ml-app
 
+A simple application that allows a user to train a support vector machine (svm) model on 
+the classical [Iris Flower Dataset](https://archive.ics.uci.edu/ml/datasets/iris) and use it to predict the classification of a flower based on sepal length, sepal width, petal length, and petal width.
+
+UI: Angular 6 <br />
+Backend: Python Flask <br />
+ORM: PonyORM <br />
+Database: Postgres
+
 ## Getting Started
 
+First fork or clone this repo:
+
+i.e. git clone https://github.com/cvkumar/flask-ml-app.git
+
+You can watch a demo of the app running with:
+`demo.mov`
+
+
+To run the app locally:
+
+```
+docker-compose up --build app
+```
+and
+```
+cd frontend/my-app
+
+npm install
+npm start
+```
+
+Go to http://localhost:4200.
 
 
 ### Prerequisites
 
 What things you need to install the software and how to install them
 
+Using [brew](https://brew.sh/)
 ```
-Give examples
+brew install node
+brew install angular-cli
 ```
+Also install: <br />
+-[Docker](https://docs.docker.com/install/) <br />
+-[Docker-compose](https://docs.docker.com/compose/install/)
 
-### Installing
+## Future Features
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+- Run Angular application paired with docker-compose using NGINX
+- Expose API for inputting training/test data
+- Create user inputs for SVM model hyperparameters and training/test data split 
+- Improve UI with Angular Material Components
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Caleb Kumar** - [cvkumar](https://github.com/cvkumar)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
