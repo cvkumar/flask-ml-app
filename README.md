@@ -1,6 +1,6 @@
 # flask-ml-app
 
-A simple application that allows a user to train a support vector machine (svm) model on 
+A simple application that enables a user to train a support vector machine (svm) model on 
 the classical [Iris Flower Dataset](https://archive.ics.uci.edu/ml/datasets/iris) and use it to predict the classification of a flower based on sepal length, sepal width, petal length, and petal width.
 
 UI: Angular 6 <br />
@@ -8,14 +8,14 @@ Backend: Python Flask <br />
 ORM: PonyORM <br />
 Database: Postgres
 
+You can watch a demo of the app running with:
+`demo.mov`
+
 ## Getting Started
 
 First fork or clone this repo:
 
 i.e. git clone https://github.com/cvkumar/flask-ml-app.git
-
-You can watch a demo of the app running with:
-`demo.mov`
 
 
 To run the app locally:
