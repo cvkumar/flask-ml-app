@@ -34,11 +34,9 @@ npm start
 Go to http://localhost:4200.
 
 
-### Prerequisites
+## Prerequisites
 
-What things you need to install the software and how to install them
-
-Using [brew](https://brew.sh/)
+Using [brew](https://brew.sh/):
 ```
 brew install node
 brew install angular-cli
