@@ -1,5 +1,19 @@
 version: "3"
 services:
+#  frontend:
+#    build:
+#      context: ./frontend/my-app
+#      dockerfile: Dockerfile
+#    volumes:
+#    - '.:/usr/src/app'
+#    - '/usr/src/app/node_modules'
+#    ports:
+#    - '4200:4200'
+#    depends_on:
+#    - postgres
+#    - app
+#    links:
+#    - app:app
   app:
     restart: always
     build: .

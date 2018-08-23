@@ -8,7 +8,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Iris Prediction Modeling';
+  title = 'Predict Iris Flower with SVM Model';
   model_accuracy = 0;
   modelTrained = false;
 
@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
   public trainModel() {
-    return this.http.get('/train').subscribe((response: any) => {
+    return this.http.get('http://localhost:5000/train').subscribe((response: any) => {
       // console.log(response);
       this.model_accuracy = response.model_accuracy;
       console.log(this.model_accuracy);
@@ -44,22 +44,22 @@ export class AppComponent {
       'petal_width': this.petal_width
     });
 
-    return this.http.post('/predict', payload, {'headers': headers}).subscribe((response: any) => {
+    return this.http.post('http://localhost:5000/predict', payload, {'headers': headers}).subscribe((response: any) => {
       this.prediction = response.prediction;
       console.log(this.prediction);
     });
   }
 
   public getPredictions() {
-    return this.http.get('/predictions').subscribe((response: any) => {
+    return this.http.get('http://localhost:5000/predictions').subscribe((response: any) => {
       this.results = response.predictions;
       console.log(response);
     });
   }
 
   public deletePredictions() {
-    return this.http.delete('/predictions').subscribe((response: any) => {
-      this.results = null;
+    return this.http.delete('http://localhost:5000/predictions').subscribe((response: any) => {
+      this.results = [];
       console.log(response);
     });
   }

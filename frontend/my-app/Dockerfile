@@ -18,5 +18,5 @@ COPY . /usr/src/app
 EXPOSE 4200
 
 # start app
-CMD npm start
+CMD ng serve --host 0.0.0.0
 
